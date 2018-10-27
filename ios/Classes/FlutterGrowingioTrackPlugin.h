@@ -1,4 +1,4 @@
 #import <Flutter/Flutter.h>
 
-@interface FlutterGrowingioTrackPlugin : NSObject<FlutterPlugin>
+@interface FlutterGrowingIOTrackPlugin : NSObject<FlutterPlugin>
 @end

@@ -1,12 +1,12 @@
-#import "FlutterGrowingioTrackPlugin.h"
+#import "FlutterGrowingIOTrackPlugin.h"
 
-@implementation FlutterGrowingioTrackPlugin
+@implementation FlutterGrowingIOTrackPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"flutter_growingio_track"
-            binaryMessenger:[registrar messenger]];
-  FlutterGrowingioTrackPlugin* instance = [[FlutterGrowingioTrackPlugin alloc] init];
-  [registrar addMethodCallDelegate:instance channel:channel];
+//  FlutterMethodChannel* channel = [FlutterMethodChannel
+//      methodChannelWithName:@"flutter_growingio_track"
+//            binaryMessenger:[registrar messenger]];
+//  FlutterGrowingIOTrackPlugin* instance = [[FlutterGrowingIOTrackPlugin alloc] init];
+//  [registrar addMethodCallDelegate:instance channel:channel];
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
