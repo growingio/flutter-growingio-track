@@ -44,7 +44,7 @@
             [Growing track:eventID withNumber:num];
             return ;
         }else if (eventID && variable){
-            [Growing track:eventID withNumber:num];
+            [Growing track:eventID withVariable:variable];
             return ;
         }else if (eventID){
             [Growing track:eventID];
