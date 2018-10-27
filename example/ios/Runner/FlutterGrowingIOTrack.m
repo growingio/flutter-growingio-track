@@ -29,7 +29,7 @@
 }
 //打点事件方法
 -(void)methodName:(NSString *)methodName andArguments:(id)arguments{
-    if (![arguments isKindOfClass:[NSDictionary class]]) {
+    if (![arguments isKindOfClass:[NSDictionary class]] && ![methodName isEqualToString:@"clearUserId"]) {
         return ;
     }
     NSDictionary *argDic = arguments ;
