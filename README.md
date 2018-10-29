@@ -195,3 +195,88 @@ GrowingIO的SDK需要在Application的onCreate中初始化:
         	  "visitorKey": 'key', "visitorValue": 34
         	});
 
+##  iOS集成 
+集成方式见Word文档：Flutter-iOS集成文档
+##  iOS调用
+
+调用方式与安卓一致
+调用示例:
+
+import 'package:growingioflutter/growingio_track.dart';
+
+GrowingIO.track('eventId');
+GrowingIO.track('testEventId', num: 23.0, variable: {'testKey': 'testValue', 'testNumKey': 233});
+GrowingIO.track('eventId', num: 23.0);
+GrowingIO.track('eventId', variable: {'testkey': 'testValue', 'testNumKey': 2333});
+
+2.  setEvar发送转化变量, 对应于evar事件
+
+函数原型为: setEvar(Map<String, dynamic> variable), 
+调用示例: 
+
+GrowingIO.setEvar({
+'testKey': 'testValue', 'testNumKey': 2333.0
+});
+
+3.  setPeopleVariable发送用户变量, 对应于ppl事件
+
+函数原型为: setPeopleVariable(Map<String, dynamic> variable) 
+
+调用示例: 
+
+GrowingIO.setPeopleVariable({
+'testKey': 'testValue', 'testNumKey': 2333.0
+});
+
+4.  setUserId设置登录用户Id, 对应于cs1字段
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">参数</td>
+<td class="org-left">类型</td>
+<td class="org-left">描述</td>
+</tr>
+
+
+<tr>
+<td class="org-left">userId</td>
+<td class="org-left">String</td>
+<td class="org-left">登录用户Id</td>
+</tr>
+</tbody>
+</table>
+
+函数原型: setUserId(String userId)
+
+调用示例: 
+
+GrowingIO.setUserId("testUserId");
+
+5.  clearUserId清楚登录用户Id
+
+函数原型: clearUserId()
+
+调用示例: 
+
+GrowingIO.clearUserId();
+
+6.  setVisitor设置访问用户变量, 对应于vstr事件
+
+函数原型: setVisitor(Map<String, dynamic> variable)
+
+调用示例: 
+
+GrowingIO.setVisitor({
+"visitorKey": 'key', "visitorValue": 34
+});
+
