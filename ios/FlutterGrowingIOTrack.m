@@ -22,14 +22,11 @@
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-    NSLog(@"call %@ result %@",call,result) ;
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[call.method description] message:[call.arguments description] delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil];
-    [alert show];
     [self methodName:call.method andArguments:call.arguments];
 }
 //打点事件方法
 -(void)methodName:(NSString *)methodName andArguments:(id)arguments{
-    if (![arguments isKindOfClass:[NSDictionary class]]) {
+    if (![arguments isKindOfClass:[NSDictionary class]] && ![methodName isEqualToString:@"clearUserId"]) {
         return ;
     }
     NSDictionary *argDic = arguments ;
@@ -44,7 +41,7 @@
             [Growing track:eventID withNumber:num];
             return ;
         }else if (eventID && variable){
-            [Growing track:eventID withNumber:num];
+            [Growing track:eventID withVariable:variable];
             return ;
         }else if (eventID){
             [Growing track:eventID];
