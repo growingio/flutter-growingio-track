@@ -1,3 +1,5 @@
+import 'package:flutter_growingio_track/flutter_growingio_track.dart';
+
 name: flutter_growingio_track
 description: Flutter Plugin For GrowingIO track 
 version: 0.0.1
@@ -10,6 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  flutter_growingio_track:
+      git:
+        url: https://github.com/growingio/flutter-growingio-track.git
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
