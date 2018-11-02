@@ -1,6 +1,10 @@
 package com.growingio.plugin.fluttergrowingiotrack;
 
+import android.text.TextUtils;
+
+import com.growingio.android.sdk.collection.ErrorLog;
 import com.growingio.android.sdk.collection.GrowingIO;
+import com.growingio.android.sdk.utils.LogUtil;
 import com.growingio.android.sdk.utils.ThreadUtils;
 
 import org.json.JSONException;
@@ -80,6 +84,7 @@ public class FlutterGrowingIOTrackPlugin implements MethodCallHandler {
     GrowingIO gio = GrowingIO.getInstance();
     if (call.hasArgument("variable")){
       JSONObject variable = toJson(call.argument("variable"));
+      if (variable == null) return;
       if (hasNum){
         gio.track(eventId, num, variable);
       }else{
@@ -108,6 +113,10 @@ public class FlutterGrowingIOTrackPlugin implements MethodCallHandler {
     JSONObject jsonObject = new JSONObject();
     for (String key: map.keySet()){
       try {
+        if (TextUtils.isEmpty(key)){
+          LogUtil.e("GrowingIO", ErrorLog.EVENT_NAME_ILLEGAL);
+          return null;
+        }
         jsonObject.put(key, map.get(key));
       } catch (JSONException e) {
         e.printStackTrace();
