@@ -6,6 +6,42 @@ GrowingIO的埋点版本flutter插件.
 
 ## Android集成
 
+此Flutter插件可支持track版本与auto-track版本的GrowingIO SDK使用, 请根据需要自行选择搭配
+
+### 添加Android依赖
+#### 依赖纯打点版本
+纯打点版本(track)版本， 需要依赖track版本的SDK
+
+    dependencies{
+        implementation 'com.growingio.android:vds-android-agent:track-2.6.0'
+    }
+
+### 无埋点版本
+无埋点版本(auto-track)版本， 需要依赖于auto-track版本的SDK并且需要配置Gradle插件
+
+*配置ClassPath:*
+
+    buildscript {
+        repositories {
+            jcenter()
+            google()
+        }
+        dependencies {
+            //gradle建议版本
+            classpath 'com.android.tools.build:gradle:3.1.3'
+            classpath 'com.growingio.android:vds-gradle-plugin:autotrack-2.6.0'
+        }
+    }
+
+*使用插件:*
+
+    apply plugin: 'com.android.application'
+    //添加插件
+    apply plugin: 'com.growingio.android'
+    ​
+    dependencies {
+            compile 'com.growingio.android:vds-android-agent:autotrack-2.6.0@aar'
+    }
 
 ### 获取projectId与UrlScheme
 
@@ -202,7 +238,7 @@ GrowingIO的SDK需要在Application的onCreate中初始化:
 调用方式与安卓一致
 调用示例:
 
-import 'package:growingioflutter/growingio_track.dart';
+import 'package:flutter_growingio_track/growingio_track.dart';
 
 GrowingIO.track('eventId');
 GrowingIO.track('testEventId', num: 23.0, variable: {'testKey': 'testValue', 'testNumKey': 233});
