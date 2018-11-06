@@ -1,14 +1,18 @@
+# flutter_growingio_track
+
+[![VersionPub](https://img.shields.io/pub/v/flutter_growingio_track.svg?colorB=blue)](https://pub.dartlang.org/packages/flutter_growingio_track)
+
 GrowingIO的埋点版本flutter插件. 
 
+# 一: 集成
+## 1. Flutter插件获取安装
+根据[dart pub](https://pub.dartlang.org/packages/flutter_growingio_track#-installing-tab-) 文档获取安装
 
-# 集成
-
-
-## Android集成
+## 2. Android集成(Native部分)
 
 此Flutter插件可支持track版本与auto-track版本的GrowingIO SDK使用, 请根据需要自行选择搭配
 
-### 添加Android依赖
+### 1.1 添加Android依赖
 #### 依赖纯打点版本
 纯打点版本(track)版本， 需要依赖track版本的SDK
 
@@ -16,7 +20,7 @@ GrowingIO的埋点版本flutter插件.
         implementation 'com.growingio.android:vds-android-agent:track-2.6.0'
     }
 
-### 无埋点版本
+### 1.2 无埋点版本
 无埋点版本(auto-track)版本， 需要依赖于auto-track版本的SDK并且需要配置Gradle插件
 
 *配置ClassPath:*
@@ -43,7 +47,7 @@ GrowingIO的埋点版本flutter插件.
             compile 'com.growingio.android:vds-android-agent:autotrack-2.6.0@aar'
     }
 
-### 获取projectId与UrlScheme
+### 2. 获取projectId与UrlScheme
 
 在GrowingIO官网应用管理创建Android应用， 跳转界面后可以发现包含projectId与UrlSchema的代码片段， 请粘贴到项目对应位置: 
 
@@ -75,7 +79,7 @@ GrowingIO的埋点版本flutter插件.
 具体配置请参见项目的example配置
 
 
-### 初始化SDK
+### 3. 初始化SDK
 
 GrowingIO的SDK需要在Application的onCreate中初始化: 
 
@@ -89,7 +93,7 @@ GrowingIO的SDK需要在Application的onCreate中初始化:
 如果flutter项目没有自定义Application， 需要用户自己手动添加一个AndroidApplication， 可参照example
 
 
-### tip
+### 4. tip
 
 1.  为什么Android项目里面高亮GrowingIO的类会出现报红色
 
@@ -101,7 +105,11 @@ GrowingIO的SDK需要在Application的onCreate中初始化:
     -   开发者相信很多用户都会使用flutter + native形式的进行开发， 为了同时服务flutter于native
 
 
-# API
+
+## 3. iOS集成(Native部分) 
+集成方式见Word文档：Flutter-iOS集成文档
+
+# 二: API
 
 在dart中调用GrowingIO的函数， 需要先import对应的包
 
@@ -111,45 +119,11 @@ GrowingIO的SDK需要在Application的onCreate中初始化:
 
 1.  track发送自定义事件, 对应于cstm事件
 
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="org-left">参数</td>
-    <td class="org-left">是否必填</td>
-    <td class="org-left">说明</td>
-    </tr>
-    
-    
-    <tr>
-    <td class="org-left">eventId</td>
-    <td class="org-left">必填</td>
-    <td class="org-left">事件Id</td>
-    </tr>
-    
-    
-    <tr>
-    <td class="org-left">num</td>
-    <td class="org-left">否</td>
-    <td class="org-left">数值, double型</td>
-    </tr>
-    
-    
-    <tr>
-    <td class="org-left">variable</td>
-    <td class="org-left">否</td>
-    <td class="org-left">参数, Map型</td>
-    </tr>
-    </tbody>
-    </table>
+      | 参数     | 是否必填 | 说明           |
+      |----------|----------|----------------|
+      | eventId  | 是       | 事件Id         |
+      | num      | 否       | 数值, double型 |
+      | variable | 否       | 变量, Map型          |
     
     调用示例:
     
@@ -181,32 +155,10 @@ GrowingIO的SDK需要在Application的onCreate中初始化:
 
 4.  setUserId设置登录用户Id, 对应于cs1字段
 
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="org-left">参数</td>
-    <td class="org-left">类型</td>
-    <td class="org-left">描述</td>
-    </tr>
-    
-    
-    <tr>
-    <td class="org-left">userId</td>
-    <td class="org-left">String</td>
-    <td class="org-left">登录用户Id</td>
-    </tr>
-    </tbody>
-    </table>
-    
+    | 参数   | 类型   | 描述       |
+    | -----  | ------ | -----      |
+    | userId | String | 登录用户Id |
+
     函数原型: setUserId(String userId)
     
     调用示例: 
@@ -230,89 +182,4 @@ GrowingIO的SDK需要在Application的onCreate中初始化:
         GrowingIO.setVisitor({
         	  "visitorKey": 'key', "visitorValue": 34
         	});
-
-##  iOS集成 
-集成方式见Word文档：Flutter-iOS集成文档
-##  iOS调用
-
-调用方式与安卓一致
-调用示例:
-
-import 'package:flutter_growingio_track/growingio_track.dart';
-
-GrowingIO.track('eventId');
-GrowingIO.track('testEventId', num: 23.0, variable: {'testKey': 'testValue', 'testNumKey': 233});
-GrowingIO.track('eventId', num: 23.0);
-GrowingIO.track('eventId', variable: {'testkey': 'testValue', 'testNumKey': 2333});
-
-2.  setEvar发送转化变量, 对应于evar事件
-
-函数原型为: setEvar(Map<String, dynamic> variable), 
-调用示例: 
-
-GrowingIO.setEvar({
-'testKey': 'testValue', 'testNumKey': 2333.0
-});
-
-3.  setPeopleVariable发送用户变量, 对应于ppl事件
-
-函数原型为: setPeopleVariable(Map<String, dynamic> variable) 
-
-调用示例: 
-
-GrowingIO.setPeopleVariable({
-'testKey': 'testValue', 'testNumKey': 2333.0
-});
-
-4.  setUserId设置登录用户Id, 对应于cs1字段
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">参数</td>
-<td class="org-left">类型</td>
-<td class="org-left">描述</td>
-</tr>
-
-
-<tr>
-<td class="org-left">userId</td>
-<td class="org-left">String</td>
-<td class="org-left">登录用户Id</td>
-</tr>
-</tbody>
-</table>
-
-函数原型: setUserId(String userId)
-
-调用示例: 
-
-GrowingIO.setUserId("testUserId");
-
-5.  clearUserId清楚登录用户Id
-
-函数原型: clearUserId()
-
-调用示例: 
-
-GrowingIO.clearUserId();
-
-6.  setVisitor设置访问用户变量, 对应于vstr事件
-
-函数原型: setVisitor(Map<String, dynamic> variable)
-
-调用示例: 
-
-GrowingIO.setVisitor({
-"visitorKey": 'key', "visitorValue": 34
-});
 
