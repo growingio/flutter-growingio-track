@@ -16,53 +16,19 @@ GrowingIO的埋点版本flutter插件.
 ## 3. iOS集成(Native部分) 
 1, 选择SDK集成方式
 (1).>使用 CocoaPods 快速集成
-     在pubspec.yaml 文件中加入依赖
-     flutter_growingio_track:
-     git: 
-     url: https://github.com/growingio/flutter-growingio-track.git
-     然后，在相应的IDE中更新packages。如：在VS Code中，右击pubspec.yaml，在弹出的菜单中选择“Get Packages“。
-     在需要对相应操作进行打点的文件中添加引用：
-     如：在main.dart中添加
-     import'package:flutter_growingio_track/flutter_growingio_track.dart';  
+
      >添加pod 'GrowingCoreKit' 到Podfile中
      >执行pod update,不要用--no-repo-update选项
+     
 (2).手动集成方式
-    >在pubspec.yaml 文件中加入
-    flutter_growingio_track:
-    git:
-    url: https://github.com/growingio/flutter-growingio-track.git
-    然后，在相应的IDE中更新packages。如：在VS Code中，右击pubspec.yaml，在弹出的菜单中选择“Get Packages“。
-    在需要对相应操作进行打点的文件中添加引用：
-    如：在main.dart中添加
-    import'package:flutter_growingio_track/flutter_growingio_track.dart';  
-    >获取sdk zip包,    解压iOS SDK压缩文件
-    >将Growing.h 和GrowingCoreKit添加到iOS工程    
-2，设置URL Scheme（必选）
-      参考官网文档：https://docs.growingio.com/docs/sdk-integration/ios-sdk/#2-she-zhi-url-scheme
-3，初始化SDK
-在 AppDelegate 中引入#import "Growing.h"并添加启动方法
-#import "Growing.h"
-在AppDelegate代理方法
-- (BOOL)application:(UIApplication *)application
-didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-...
-    // 启动GrowingIO
-    [Growing startWithAccountId:@"xxxxxxxxxxxxxxxx"]; //替换为您的ID
-    // 其他配置
-    // 开启Growing调试日志 可以开启日志
-    // [Growing setEnableLog:YES];
-}
-请确保将代码添加在上面描述的位置，添加到其他函数中或者异步 block 中可能导致数据不准确！
-至此，您的SDK安装就成功了。登录 GrowingIO 进入产品安装页面执行“数据检测”，几分钟后就可以看到数据了
-4，注意事项
-4.1 App Store 提交应用
-如果您添加了库AdSupport.framework, GrowingIO则会启用 IDFA，所以在向 App Store 提交应用时，需要：
-•    对于问题 Does this app use the Advertising Identifier (IDFA)，选择 YES。
-•    对于选项Attribute this app installation to a previously served advertisement，打勾。
-•    对于选项Attribute an action taken within this app to a previously served advertisement，打勾。
-4.2为什么 GrowingIO 使用 IDFA? 
-GrowingIO 使用 IDFA 来做来源管理激活设备的精确匹配，让你更好的衡量广告效果。如果你不希望跟踪这个信息，可以选择不引入 AdSupport.framework
 
+
+    >获取sdk zip包,解压iOS SDK压缩文件
+    >将Growing.h 和GrowingCoreKit添加到iOS工程  
+    
+2，设置URL Scheme与初始化SDK（必选）
+
+      参考官网文档：https://docs.growingio.com/docs/sdk-integration/ios-sdk/#2-she-zhi-url-scheme
 
 ## 4. Tips
 #### 4.1 IOS: App Store 提交应用
