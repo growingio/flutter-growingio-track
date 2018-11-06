@@ -1,12 +1,11 @@
 #include "AppDelegate.h"
-#import "FlutterGrowingIOTrack.h"
-#import <GrowingCoreKit/GrowingCoreKit.h>
+#include "GeneratedPluginRegistrant.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  [Growing startWithAccountId:@"xxxxxxxxxxx"];
-  [FlutterGrowingIOTrack registerWithRegistry:self];
+  [GeneratedPluginRegistrant registerWithRegistry:self];
   // Override point for customization after application launch.
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
