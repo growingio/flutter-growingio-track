@@ -15,20 +15,19 @@ GrowingIO的埋点版本flutter插件.
 
 ## 3. iOS集成(Native部分) 
 1, 选择SDK集成方式
-(1).>使用 CocoaPods 快速集成
+(1).使用 CocoaPods 快速集成
 
-     >添加pod 'GrowingCoreKit' 到Podfile中
-     >执行pod update,不要用--no-repo-update选项
+- 添加pod 'GrowingCoreKit' 到Podfile中
+- 执行pod update,不要用--no-repo-update选项
      
 (2).手动集成方式
 
-
-    >获取sdk zip包,解压iOS SDK压缩文件
-    >将Growing.h 和GrowingCoreKit添加到iOS工程  
+- 前往官网获取sdk zip包,解压iOS SDK压缩文件
+- 将Growing.h 和GrowingCoreKit添加到iOS工程
     
 2，设置URL Scheme与初始化SDK（必选）
 
-      参考官网文档：https://docs.growingio.com/docs/sdk-integration/ios-sdk/#2-she-zhi-url-scheme
+参考官网文档：https://docs.growingio.com/docs/sdk-integration/ios-sdk/#2-she-zhi-url-scheme
 
 ## 4. Tips
 #### 4.1 IOS: App Store 提交应用
