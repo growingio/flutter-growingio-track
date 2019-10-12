@@ -13,7 +13,6 @@ Flutter Plugin For GrowingIO track
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
-  #s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.dependency 'GrowingCoreKit'
   s.static_framework = true
