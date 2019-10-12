@@ -1,0 +1,21 @@
+name: flutter_growingio_track
+description: Flutter Plugin For GrowingIO SDK, is used for calling GrowingIO api in flutter. 
+version: 2.6.2
+author: ldk <ldkxingzhe@gmail.com>
+homepage: https://github.com/growingio/flutter-growingio-track
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://www.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  plugin:
+    androidPackage: com.growingio.plugin.fluttergrowingiotrack
+    pluginClass: FlutterGrowingIOTrackPlugin
