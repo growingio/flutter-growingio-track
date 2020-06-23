@@ -4,7 +4,7 @@ version: 2.6.5
 homepage: https://github.com/growingio/flutter-growingio-track
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.0.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -16,5 +16,10 @@ dependencies:
 # The following section is specific to Flutter.
 flutter:
   plugin:
-    androidPackage: com.growingio.plugin.fluttergrowingiotrack
-    pluginClass: FlutterGrowingIOTrackPlugin
+    platforms:
+      android:
+      package: com.growingio.plugin.fluttergrowingiotrack
+      pluginClass: FlutterGrowingIOTrackPlugin
+      ios:
+        pluginClass: FlutterGrowingIOTrackPlugin
+
