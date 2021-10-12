@@ -1,13 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/services.dart';
 
 class GrowingIO {
   static const MethodChannel _channel =
       const MethodChannel('flutter_growingio_track');
 
-  static Future<Null> track(String eventId,
-      {double num, Map<String, dynamic> variable}) async {
+  static Future<Null> track(String? eventId,
+      {double? num, Map<String, dynamic>? variable}) async {
+    if (eventId == null) return;
     Map<String, dynamic> args = {"eventId": eventId};
     if (num != null) {
       args['num'] = num;
@@ -18,15 +18,18 @@ class GrowingIO {
     return await _channel.invokeMethod("track", args);
   }
 
-  static Future<Null> setEvar(Map<String, dynamic> variable) async {
+  static Future<Null> setEvar(Map<String, dynamic>? variable) async {
+    if (variable == null) return;
     return await _channel.invokeMethod("setEvar", variable);
   }
 
-  static Future<Null> setPeopleVariable(Map<String, dynamic> variable) async {
+  static Future<Null> setPeopleVariable(Map<String, dynamic>? variable) async {
+    if (variable == null) return;
     return await _channel.invokeMethod("setPeopleVariable", variable);
   }
 
-  static Future<Null> setUserId(String userId) async {
+  static Future<Null> setUserId(String? userId) async {
+    if (userId == null) return;
     return await _channel.invokeMethod("setUserId", {"userId": userId});
   }
 
@@ -34,7 +37,8 @@ class GrowingIO {
     return await _channel.invokeMethod("clearUserId");
   }
 
-  static Future<Null> setVisitor(Map<String, dynamic> variable) async {
+  static Future<Null> setVisitor(Map<String, dynamic>? variable) async {
+    if (variable == null) return;
     return await _channel.invokeMethod("setVisitor", variable);
   }
 }

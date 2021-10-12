@@ -17,9 +17,9 @@ class MyButton extends StatelessWidget {
   final String text;
 
   const MyButton({
-    Key key,
-    @required this.text,
-    @required this.onPressed
+    Key? key,
+    required this.text,
+    required this.onPressed
   }): super(key: key);
 
   @override
@@ -54,6 +54,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _clickTrack(){
+    GrowingIO.track(null);
     GrowingIO.track('eventId');
     GrowingIO.track('testEventId', num: 23.0, variable: {'testKey': 'testValue', 'testNumKey': 233});
     GrowingIO.track('eventId', num: 23.0);
@@ -64,9 +65,11 @@ class _MyAppState extends State<MyApp> {
     GrowingIO.setEvar({
       'testKey': 'testValue', 'testNumKey': 2333.0
     });
+    GrowingIO.setEvar(null);
   }
 
   void _clickSetPeopleVariable(){
+    GrowingIO.setPeopleVariable(null);
     GrowingIO.setPeopleVariable({
       'testKey': 'testValue', 'testNumKey': 2333.0
     });
@@ -74,6 +77,7 @@ class _MyAppState extends State<MyApp> {
 
   void _clickSetUserId(){
     GrowingIO.setUserId("testUserId");
+    GrowingIO.setUserId(null);
   }
 
   void _clickClearUserId(){
@@ -81,6 +85,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _clickSetVisitor(){
+    GrowingIO.setVisitor(null);
     GrowingIO.setVisitor({
       "visitorKey": 'key', "visitorValue": 34
     });

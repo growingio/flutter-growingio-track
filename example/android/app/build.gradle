@@ -25,7 +25,7 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 30
 
     lintOptions {
         disable 'InvalidPackage'
@@ -34,11 +34,10 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.growingio.plugin.fluttergrowingiotrackexample"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion 17
+        targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         resValue("string", "growingio_project_id", "9926fc6c1189e2fb")
         resValue("string", "growingio_url_scheme", "growing.da7e6c2879469314")
@@ -58,8 +57,8 @@ flutter {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.growingio.android:vds-android-agent:track-2.6.0'
 }
