@@ -1,6 +1,6 @@
 name: flutter_growingio_track
 description: Flutter Plugin For GrowingIO SDK, is used for calling GrowingIO api in flutter.
-version: 2.7.0
+version: 2.7.1
 homepage: https://github.com/growingio/flutter-growingio-track
 
 environment:
