@@ -1,0 +1,22 @@
+{
+  "modelVersion": "5.0.0",
+  "name": "example",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@ohos/flutter_ohos": "file:./har/flutter.har"
+  },
+  "devDependencies": {
+    "@ohos/hypium": "1.0.6"
+  },
+  "overrides": {
+    "@growingio/analytics": "file:../../../growingio-sdk-harmonyos/GrowingAnalytics/build/default/outputs/default/GrowingAnalytics.har",
+    "@growingio/tools": "file:../../../growingio-sdk-harmonyos/GrowingToolsKit/build/default/outputs/default/GrowingToolsKit.har",
+    "flutter_growingio_track": "file:./har/flutter_growingio_track.har",
+    "@ohos/flutter_module": "file:./entry",
+    "@ohos/flutter_ohos": "file:./har/flutter.har"
+  }
+}
