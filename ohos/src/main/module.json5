@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "flutter_growingio_track",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}
