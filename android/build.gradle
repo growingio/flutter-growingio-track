@@ -23,6 +23,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.growingio.plugin.fluttergrowingiotrack'
     compileSdkVersion 28
 
     defaultConfig {
