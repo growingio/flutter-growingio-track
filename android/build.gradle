@@ -36,5 +36,5 @@ android {
 }
 
 dependencies{
-    compileOnly 'com.growingio.android:vds-android-agent:track-2.10.2'
+    compileOnly 'com.growingio.android:vds-android-agent:track-2.10.3'
 }
