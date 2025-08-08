@@ -24,7 +24,7 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new FlatButton(onPressed: this.onPressed, child: new Text(this.text, style: TextStyle(fontSize: 20.0),));
+    return new TextButton(onPressed: this.onPressed, child: new Text(this.text, style: TextStyle(fontSize: 20.0),));
   }
 
 }
