@@ -6,6 +6,8 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "flutter_growingio_track": "file:../har/flutter_growingio_track.har"
+    "flutter_growingio_track": "file:../har/flutter_growingio_track.har",
+    "@ohos/flutter_ohos": "har/flutter.har",
+    "@growingio/tools": "^1.4.0"
   }
 }
