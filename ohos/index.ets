@@ -22,4 +22,3 @@ export {
   GrowingAnalyticsInterface,
   GrowingConfig
 } from '@growingio/analytics'
-export { GrowingToolsKit } from '@growingio/tools'

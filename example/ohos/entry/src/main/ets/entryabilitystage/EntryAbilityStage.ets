@@ -1,6 +1,7 @@
 import AbilityStage from '@ohos.app.ability.AbilityStage'
 import type Want from '@ohos.app.ability.Want'
-import { GrowingAnalytics, GrowingConfig, GrowingToolsKit } from 'flutter_growingio_track'
+import { GrowingAnalytics, GrowingConfig } from 'flutter_growingio_track'
+import { GrowingToolsKit } from '@growingio/tools'
 
 export default class EntryAbilityStage extends AbilityStage {
   onCreate(): void {
@@ -32,7 +33,7 @@ export default class EntryAbilityStage extends AbilityStage {
     config.requestOptions.connectTimeout = 10
     config.requestOptions.transferTimeout = 10
     config.autotrackAllPages = true
-    config.plugins = [new GrowingToolsKit()]
+    config.plugins = [new GrowingToolsKit({useInRelease: true})]
     GrowingAnalytics.start(this.context, config)
   }
 }

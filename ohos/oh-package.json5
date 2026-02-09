@@ -9,7 +9,6 @@
   "dependencies": {
     "@ohos/flutter_ohos": "file:./har/flutter.har",
     "@growingio/analytics": "~2.7.1",
-    "@growingio/tools": "~1.4.0",
   },
   "devDependencies": {},
   "dynamicDependencies": {}
